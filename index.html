@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch A Sketch</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(16, 1fr);  /* 16 columns */
+            grid-template-rows: repeat(16, 1fr);     /* 16 rows */
+            width: 600px;   /* Fixed size */
+            height: 600px;  /* Fixed size */
+            border: 2px solid black;
+            margin: 0 auto; /* Center the grid */
+        }
+        .cell {
+            border: 1px solid black;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        const grid = document.querySelector('#container');
+
+        // Create 16x16 grid cells
+        for (let i = 0; i < 16 * 16; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            grid.appendChild(cell);
+        }
+    </script>
+</body>
+</html>

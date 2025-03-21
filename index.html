@@ -6,30 +6,32 @@
     <title>Etch A Sketch</title>
     <style>
         #container {
-            display: grid;
-            grid-template-columns: repeat(16, 1fr);  /* 16 columns */
-            grid-template-rows: repeat(16, 1fr);     /* 16 rows */
             width: 600px;   /* Fixed size */
             height: 600px;  /* Fixed size */
             border: 2px solid black;
             margin: 0 auto; /* Center the grid */
+            display: flex;
+            flex-wrap: wrap;
         }
-        .cell {
+        .square {
+            width: calc(600px / 16);
+            height: calc(600px / 16);
             border: 1px solid black;
-            background: orange;
+            box-sizing: border-box;
         }
     </style>
 </head>
 <body>
     <div id="container"></div>
     <script>
-        const grid = document.querySelector('#container');
-
-        // Create 16x16 grid cells
-        for (let i = 0; i < 16 * 16; i++) {
-            const cell = document.createElement('div');
-            cell.classList.add('cell');
-            grid.appendChild(cell);
+        var colors = ['red', 'blue', 'green'];
+        const gridSize = 16;
+        const container = document.querySelector("#container");
+        for (let i = 0; i < gridSize * gridSize; i++) {
+            const square = document.createElement('div');
+            square.style.background=colors[Math.floor(Math.random() * colors.length)];           
+            square.classList.add('square');
+            container.appendChild(square);
         }
     </script>
 </body>
